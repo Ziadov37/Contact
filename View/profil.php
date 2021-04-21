@@ -34,6 +34,9 @@ include('../includes/autuload.inc.php');
             </div>
         </div>
     </nav>
+    <?php $profils = new profils(); ?>
+    <?php if ($profils->getProfil()) : ?>
+    <?php foreach ($profils->getProfil() as $profil) : ?>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -44,11 +47,15 @@ include('../includes/autuload.inc.php');
         </thead>
         <tbody>
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <th scope="row"><?= $post['id']  ?></th>
+                <td><?= $post['fullname']  ?></td>
+                <td><?= $post['email']  ?></td>
             </tr>
         </tbody>
+        <?php endforeach; ?>
+        <?php else : ?>
+        <p>Nothing to show</p>
+        <?php endif; ?>
     </table>
 
 
