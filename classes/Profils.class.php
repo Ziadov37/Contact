@@ -1,6 +1,6 @@
 <?php
-
-class profils extends db
+require_once('../Model/database.php');
+class Profils extends db
 {
     public function getProfil()
     {

@@ -1,5 +1,5 @@
 <?php
-include('../includes/autuload.inc.php');
+include "../includes/autuload.inc.php";
 ?>
 
 <!doctype html>
@@ -34,9 +34,9 @@ include('../includes/autuload.inc.php');
             </div>
         </div>
     </nav>
-    <?php $profils = new profils(); ?>
-    <?php if ($profils->getProfil()) : ?>
-    <?php foreach ($profils->getProfil() as $profil) : ?>
+    <?php $profileOne = new Profils(); ?>
+    <?php if ($profileOne->getProfil()) : ?>
+    <?php foreach ($profileOne->getProfil() as $profil) : ?>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -47,9 +47,9 @@ include('../includes/autuload.inc.php');
         </thead>
         <tbody>
             <tr>
-                <th scope="row"><?= $post['id']  ?></th>
-                <td><?= $post['fullname']  ?></td>
-                <td><?= $post['email']  ?></td>
+                <th scope="row"><?= $profil['id']  ?></th>
+                <td><?= $profil['fullname']  ?></td>
+                <td><?= $profil['email']  ?></td>
             </tr>
         </tbody>
         <?php endforeach; ?>
