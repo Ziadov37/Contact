@@ -1,21 +1,21 @@
 <?php
 class db
 {
-    private $servername;
-    private $username;
-    private $password;
-    private $dbname;
-
-
-    protected function connect()
+    function __construct($servername, $password, $username, $dbname)
     {
-        $this->servername = "localhost";
-        $this->username = "root";
-        $this->password = "";
-        $this->dbname = "contact_list";
+        $this->servername = $servername;
+        $this->username = $username;
+        $this->password = $password;
+        $this->dbname = $dbname;
+    }
 
-        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+    function connexion()
+    {
+        $dsn = 'mysql:host=' . $this->servername . ';dbname=' . $this->dbname;
+        $pdo = new PDO($dsn, $this->username, $this->password);
 
-        return $conn;
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+        return $pdo;
     }
 }
