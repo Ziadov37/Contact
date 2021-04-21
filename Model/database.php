@@ -1,17 +1,16 @@
 <?php
 class db
 {
-    function __construct($servername, $password, $username, $dbname)
-    {
-        $this->servername = $servername;
-        $this->username = $username;
-        $this->password = $password;
-        $this->dbname = $dbname;
-    }
 
-    function connexion()
+
+    private $host = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "contact_list";
+
+    public function connect()
     {
-        $dsn = 'mysql:host=' . $this->servername . ';dbname=' . $this->dbname;
+        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
         $pdo = new PDO($dsn, $this->username, $this->password);
 
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
