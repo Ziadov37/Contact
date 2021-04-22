@@ -27,8 +27,8 @@ include "../includes/autuload.inc.php";
             </button>
             <div class="collapse navbar-collapse d-flex  justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Profil</a>
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="profil.php">Profil</a>
+                    <a class="nav-link" href="contact.php">Contact</a>
                     <a class="nav-link" href="#">Logout</a>
                 </div>
             </div>
