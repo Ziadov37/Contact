@@ -30,4 +30,20 @@ class Contact extends db
             header('location:../View/contact.php');
         }
     }
+    public function editPost($id)
+    {
+        $sql = "SELECT * FROM `contact` WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetch();
+
+        return $result;
+    }
+
+    public function updatePost($id, $name, $email, $phone, $adress)
+    {
+        $sql = "UPDATE `contact` SET name = ?, email = ?, phone = ?, adress = ? WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$name, $email, $phone, $adress, $id]);
+    }
 }
