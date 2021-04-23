@@ -1,3 +1,10 @@
+<?php
+include "../includes/autuload.inc.php";
+$contact = new Contact();
+$data = $contact->getContact();
+var_dump($data)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

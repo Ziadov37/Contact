@@ -1,5 +1,5 @@
 <?php
-require_once('../Model/database.php');
+include_once('../Model/database.php');
 class Profils extends db
 {
     public function getProfil()

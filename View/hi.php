@@ -1,3 +1,8 @@
+<?php
+include "../includes/autuload.inc.php";
+$contact = new Contact();
+$contact->addContact();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,25 +35,25 @@
             </div>
         </div>
     </nav>
-    <form>
+    <form action="" method="POST">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Full name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Phone</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Adress</label>
-            <input type="ntext" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="ntext" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="adress">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
 
 </body>
