@@ -2,7 +2,7 @@
 include "../includes/autuload.inc.php";
 $contact = new Contact();
 $data = $contact->getContact();
-var_dump($data)
+// var_dump($data)
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +38,7 @@ var_dump($data)
         <h3 class="text-center text-uppercase ">Contact</h3>
     </div>
     <div>
+        <?php foreach ($contact->getContact() as $contact) : ?>
         <table class="table t-20">
             <thead class="thead-dark">
                 <tr>
@@ -50,10 +51,10 @@ var_dump($data)
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th scope="row"><?= $contact['fullname'] ?></th>
+                    <td><?= $contact['email'] ?></td>
+                    <td><?= $contact['phone'] ?></td>
+                    <td><?= $contact['adress'] ?></td>
                     <td>
                         <button type="button" class="btn btn-dark">Edite</button>
                         <button type="button" class="btn btn-dark">Delete</button>
@@ -62,6 +63,7 @@ var_dump($data)
 
             </tbody>
         </table>
+        <?php endforeach; ?>
     </div>
 </body>
 
