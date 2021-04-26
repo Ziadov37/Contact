@@ -12,6 +12,8 @@ class Contact extends db
             return $result;
         }
     }
+
+
     public function addContact()
     {
         if (isset($_POST['submit'])) {
@@ -30,23 +32,8 @@ class Contact extends db
             header('location:../View/contact.php');
         }
     }
-    // public function editContact()
-    // {
-    //     // $posts = new Posts();
 
-    //     // $post = $posts->editPost($_GET['id']);
-    //     $id = $_POST['id'];
-    //     $name = $_POST['name'];
-    //     $email = $_POST['email'];
-    //     $phone = $_POST['phone'];
-    //     $adress = $_GET['adress'];
-    //     $sql = "SELECT * FROM `contact` WHERE id = ?";
-    //     $stmt = $this->connect()->prepare($sql);
-    //     $stmt->execute();
-    //     $result = $stmt->fetch();
 
-    //     return $result;
-    // }
 
     public function hh($id)
     {
@@ -59,10 +46,11 @@ class Contact extends db
         }
     }
 
-    public function updateContact()
+
+
+    public function updateContact($id)
     {
         if (isset($_POST['update'])) {
-            $id = $_GET['id'];
             $name = $_POST['name'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
@@ -70,19 +58,24 @@ class Contact extends db
 
             // $sql = $this->connect()->prepare("UPDATE `contact` SET(`name`, `email`, `phone`,`adress`) VALUES (:fullname, :email, :phone, :adress)");
 
-            $sql = $this->connect()->prepare("UPDATE `contact` SET name=:name, email=:email, phone=:phone, adress=:adress  WHERE id=:id");
+            echo $id . " " . $name . " " . $email . " " . $phone . "  " . $adress;
+            $sql = $this->connect()->prepare("UPDATE contact SET fullname='$name', email='$email', phone='$phone', adress='$adress'  WHERE id=$id");
 
 
-            $sql->bindParam(':fullname', $name, PDO::PARAM_STR);
-            $sql->bindParam(':email', $email, PDO::PARAM_STR);
-            $sql->bindParam(':phone', $phone, PDO::PARAM_STR);
-            $sql->bindParam(':adress', $adress, PDO::PARAM_STR);
-            // $sql->bindParam(':id_user', $id_user, PDO::PARAM_STR);
 
-
+            // $sql->bindParam(':id', $id, PDO::PARAM_INT);
+            // $sql->bindParam(':fullname', $name, PDO::PARAM_STR);
+            // $sql->bindParam(':email', $email, PDO::PARAM_STR);
+            // $sql->bindParam(':phone', $phone, PDO::PARAM_STR);
+            // $sql->bindParam(':adress', $adress, PDO::PARAM_STR);
+            // echo "<pre>";
+            // $sql->debugDumpParams();
+            // echo "</pre>";
             // $stmt = $this->connect()->prepare($sql);
 
             $sql->execute();
+
+            header('location:../View/contact.php');
         }
     }
 }

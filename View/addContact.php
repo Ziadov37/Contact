@@ -1,5 +1,7 @@
 <?php
 include "../includes/autuload.inc.php";
+
+//  instant object  //
 $contact = new Contact();
 $contact->addContact();
 ?>

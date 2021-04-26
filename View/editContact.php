@@ -12,11 +12,13 @@ if (!isset($_GET["id"])) {
 $currentId = $_GET["id"];
 
 
-// $get = new Contact();
 $dat = $contact->hh($_GET["id"]);
 // var_dump($dat)
 
-
+if (isset($_POST["update"])) {
+    echo "from update if";
+    $contact->updateContact($_GET["id"]);
+}
 
 // $update = $date->editPost($_GET['id']);
 // $name = $update['name'];

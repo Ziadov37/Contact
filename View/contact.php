@@ -1,5 +1,7 @@
 <?php
 include "../includes/autuload.inc.php";
+
+//  instant object  //
 $contact = new Contact();
 $data = $contact->getContact();
 // var_dump($data)
@@ -28,7 +30,7 @@ $data = $contact->getContact();
             <div class="collapse navbar-collapse d-flex  justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="profil.php">PROFIL</a>
-                    <a class="nav-link" href="hi.php">ADD CONTACT</a>
+                    <a class="nav-link" href="addContact.php">ADD CONTACT</a>
                     <a class="nav-link" href="">LOGOUT</a>
                 </div>
             </div>
@@ -56,7 +58,7 @@ $data = $contact->getContact();
                     <td><?= $contact['phone'] ?></td>
                     <td><?= $contact['adress'] ?></td>
                     <td>
-                        <a href="editContact.php" type="button" class="btn btn-dark">Edite</a>
+                        <a href="editContact.php?id=<?= $contact["id"] ?>" type="button" class="btn btn-dark">Edite</a>
                         <a href="" type="button" class="btn btn-dark">Delete</a>
                     </td>
                 </tr>
