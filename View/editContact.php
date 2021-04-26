@@ -1,3 +1,26 @@
+<?php
+include "../includes/autuload.inc.php";
+
+//  instant object  //
+$contact = new Contact();
+$data = $contact->getContact();
+
+
+if (!isset($_GET["id"])) {
+    header("location: contact.php");
+}
+$currentId = $_GET["id"];
+
+
+// $get = new Contact();
+$dat = $contact->hh($_GET["id"]);
+// var_dump($dat)
+
+
+
+// $update = $date->editPost($_GET['id']);
+// $name = $update['name'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,31 +47,38 @@
             <div class="collapse navbar-collapse d-flex  justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="profil.php">PROFIL</a>
-                    <a class="nav-link" href="">ADD CONTACT</a>
+                    <a class="nav-link" href="addContact.php">ADD CONTACT</a>
                     <a class="nav-link" href="">LOGOUT</a>
                 </div>
             </div>
         </div>
     </nav>
     <form action="" method="POST">
+        <?php foreach ($contact->hh($_GET["id"]) as $contact) : ?>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Full name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
+            <input type="text" class="form-control" aria-describedby="emailHelp" name="name"
+                value="<?= $contact['fullname'] ?>">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <input type="email" class="form-control" aria-describedby="emailHelp" name="email"
+                value="<?= $contact['email'] ?>">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Phone</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone">
+            <input type="number" class="form-control" aria-describedby="emailHelp" name="phone"
+                value="<?= $contact['phone'] ?>">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Adress</label>
-            <input type="ntext" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="adress">
+            <input type="ntext" class="form-control" aria-describedby="emailHelp" name="adress"
+                value="<?= $contact['adress'] ?>">
         </div>
 
-        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        <button type="submit" class="btn btn-primary" name="update">Submit</button>
+        <button class="btn btn-primary">Close</button>
+        <?php endforeach; ?>
     </form>
 
 </body>
