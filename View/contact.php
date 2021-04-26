@@ -5,6 +5,11 @@ include "../includes/autuload.inc.php";
 $contact = new Contact();
 $data = $contact->getContact();
 // var_dump($data)
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +63,10 @@ $data = $contact->getContact();
                     <td><?= $contact['phone'] ?></td>
                     <td><?= $contact['adress'] ?></td>
                     <td>
+
                         <a href="editContact.php?id=<?= $contact["id"] ?>" type="button" class="btn btn-dark">Edite</a>
-                        <a href="" type="button" class="btn btn-dark">Delete</a>
+                        <a href="../Model/delete.php?id=<?= $contact["id"] ?>" type="submit" name="delete"
+                            class="btn btn-dark">Delete</a>
                     </td>
                 </tr>
 

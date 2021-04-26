@@ -58,7 +58,7 @@ class Contact extends db
 
             // $sql = $this->connect()->prepare("UPDATE `contact` SET(`name`, `email`, `phone`,`adress`) VALUES (:fullname, :email, :phone, :adress)");
 
-            echo $id . " " . $name . " " . $email . " " . $phone . "  " . $adress;
+            // echo $id . " " . $name . " " . $email . " " . $phone . "  " . $adress;
             $sql = $this->connect()->prepare("UPDATE contact SET fullname='$name', email='$email', phone='$phone', adress='$adress'  WHERE id=$id");
 
 
@@ -76,5 +76,15 @@ class Contact extends db
 
             header('location:../View/contact.php');
         }
+    }
+
+    public function deleteContact($id)
+    {
+
+
+        // $sql = "DELETE FROM `contact` WHERE id=$id";
+        $stmt = $this->connect()->prepare("DELETE FROM `contact` WHERE id=$id");
+        $stmt->execute();
+        header('location:../View/contact.php');
     }
 }
