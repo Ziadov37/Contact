@@ -62,7 +62,6 @@ class Contact extends db
             $sql = $this->connect()->prepare("UPDATE contact SET fullname='$name', email='$email', phone='$phone', adress='$adress'  WHERE id=$id");
 
 
-
             // $sql->bindParam(':id', $id, PDO::PARAM_INT);
             // $sql->bindParam(':fullname', $name, PDO::PARAM_STR);
             // $sql->bindParam(':email', $email, PDO::PARAM_STR);

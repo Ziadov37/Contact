@@ -5,23 +5,18 @@ include "../includes/autuload.inc.php";
 $contact = new Contact();
 $data = $contact->getContact();
 
-
+// If the id excicte or not  //
 if (!isset($_GET["id"])) {
     header("location: contact.php");
 }
 $currentId = $_GET["id"];
 
 
+//  if the 
 $dat = $contact->hh($_GET["id"]);
-// var_dump($dat)
-
 if (isset($_POST["update"])) {
-    echo "from update if";
     $contact->updateContact($_GET["id"]);
 }
-
-// $update = $date->editPost($_GET['id']);
-// $name = $update['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
