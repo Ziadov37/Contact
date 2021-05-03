@@ -45,7 +45,6 @@ $data = $contact->getContact();
         <h3 class="text-center text-uppercase ">Contact</h3>
     </div>
     <div>
-        <?php foreach ($contact->getContact() as $contact) : ?>
         <table class="table t-20">
             <thead class="thead-dark">
                 <tr>
@@ -56,10 +55,12 @@ $data = $contact->getContact();
                     <th scope="col">Edit / Delete</th>
                 </tr>
             </thead>
+            <?php foreach ($contact->getContact() as $contact) : ?>
             <tbody>
+
                 <tr>
-                    <th scope="row"><?= $contact['fullname'] ?></th>
-                    <td><?= $contact['email'] ?></td>
+                    <td scope="row"><?= $contact['fullname'] ?></td>
+                    <td scope="row"><?= $contact['email'] ?></td>
                     <td><?= $contact['phone'] ?></td>
                     <td><?= $contact['adress'] ?></td>
                     <td>
@@ -68,11 +69,12 @@ $data = $contact->getContact();
                         <a href="../Model/delete.php?id=<?= $contact["id"] ?>" type="submit" name="delete"
                             class="btn btn-dark">Delete</a>
                     </td>
+                    <?php endforeach; ?>
                 </tr>
 
             </tbody>
         </table>
-        <?php endforeach; ?>
+
     </div>
 </body>
 

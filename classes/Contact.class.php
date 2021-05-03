@@ -80,9 +80,6 @@ class Contact extends db
 
     public function deleteContact($id)
     {
-
-
-        // $sql = "DELETE FROM `contact` WHERE id=$id";
         $stmt = $this->connect()->prepare("DELETE FROM `contact` WHERE id=$id");
         $stmt->execute();
         header('location:../View/contact.php');
